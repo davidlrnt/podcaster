@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var secrets = require('/conf/secrets.json');
-
+var helmet = require('helmet');
 var facebook = require('passport-facebook');
 
 var routes = require('./routes/index');
@@ -24,7 +24,8 @@ app.set('x-powered-by', false);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+//Pending: test w/o helmet
+app.use(helmet());
 //Pass secret string to cookieParse
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cookieParser());
