@@ -33,7 +33,7 @@ var Podcast = new Schema ({
 		},
 		date: {
 			type: Date,
-		}
+		},
 		author: {
 	      	id: {
 	        	type: Schema.Types.ObjectId,
@@ -43,3 +43,5 @@ var Podcast = new Schema ({
 	    }
 	}],
 })
+
+exports.Podcast = Podcast;

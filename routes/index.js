@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var user = require('./models/user.js');
-var podcast = require('./models/podcast.js');
+var user = require('../models/user.js');
+var podcast = require('../models/podcast.js');
 
 var dbUrl = process.env.MONGOHQ_URL || 'mongodb://@127.0.0.1:27017/podcaster';
 var mongoose = require('mongoose');

@@ -35,3 +35,5 @@ var User = new Schema ({
 	}
 
 })
+
+exports.User = User;

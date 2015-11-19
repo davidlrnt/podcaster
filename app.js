@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var secrets = require('/conf/secrets.json');
+var secrets = require('./conf/secrets');
 var helmet = require('helmet');
 var facebook = require('passport-facebook');
 
