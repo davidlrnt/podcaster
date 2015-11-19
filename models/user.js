@@ -14,7 +14,13 @@ var User = new Schema ({
 	    trim: true,
 	    max: 50,
 	    match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
-	},  
+	},
+	password: String,
+	photoUrl: String,
+	favorites: [{
+	    type: Schema.Types.ObjectId,
+	    ref: 'Podcast'
+	}],
 	approved: {
 	    type: Boolean,
 	    default: false
