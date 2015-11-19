@@ -12,7 +12,8 @@ var User = new Schema ({
 		required: true,
 		type: String,
 	    trim: true,
-	    max: 50
+	    max: 50,
+	    match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
 	},  
 	approved: {
 	    type: Boolean,
