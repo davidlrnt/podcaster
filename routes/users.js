@@ -65,9 +65,10 @@ passport.use('facebook', new FacebookStrategy({
     	console.log(refreshToken)
     	console.log(profile)
     	console.log(done)
+    	debugger;
         // asynchronous
         process.nextTick(function() {
-
+        	console.log(user)
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
 
@@ -103,6 +104,7 @@ passport.use('facebook', new FacebookStrategy({
         });
 
     }));
+
 
 
 module.exports = router;
