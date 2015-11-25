@@ -4,6 +4,8 @@ block content
   div
     h1 Find Podcasts
     //- p Welcome to #{title}
-    input(type="text", name="search")
+    form(action="/podcasts", method="get")  
+      input(type="text", name="name")
+      input(type="submit", value="search")
   div
     h1 Genres
