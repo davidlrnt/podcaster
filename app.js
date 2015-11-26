@@ -8,10 +8,11 @@ var secrets = require('./conf/secrets');
 var helmet = require('helmet');
 var passport = require('passport')
 var facebook = require('passport-facebook');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var podcasts = require('./routes/podcasts');
+var podcasts = require('./routes/podcasts')(mongoose);
 var FeedParser = require('feedparser')
 var request = require('request');
 

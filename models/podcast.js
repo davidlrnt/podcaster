@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Podcast = new Schema ({
+var PodcastSchema = new Schema ({
 	name: {
 		required: true,
 		type: String,
@@ -44,4 +44,5 @@ var Podcast = new Schema ({
 	}],
 })
 
-exports.Podcast = Podcast;
+// exports.Podcast = Podcast;
+module.exports = mongoose.model('Podcast', PodcastSchema);
