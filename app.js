@@ -8,20 +8,8 @@ var secrets = require('./conf/secrets');
 var helmet = require('helmet');
 var passport = require('passport')
 var facebook = require('passport-facebook');
-// var mongoose = require('mongoose');
-// mongoose.set('debug', true);
-
-
-
-var dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/podcaster';
-var mongoose = require('mongoose');
-var connection = mongoose.connect(dbUrl);
-// var connection = mongoose.createConnection(dbUrl);
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.once('open', function () {
-  console.info('Connected to database')
-});
-mongoose.set('debug', true);
+var mongoose = require('mongoose')
+var db = require('./conf/db')
 
 // mongoose.connection.on('error',function (err) {
 //      console.log('Mongoose connection error: ' + err);
