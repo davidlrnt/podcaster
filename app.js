@@ -17,7 +17,7 @@ var db = require('./conf/db')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var podcasts = require('./routes/podcasts')(mongoose);
+var podcasts = require('./routes/podcasts');
 var FeedParser = require('feedparser')
 var request = require('request');
 
