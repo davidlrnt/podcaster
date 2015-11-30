@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+mongoose.set('debug', true);
+
 
 var PodcastSchema = new Schema ({
 	name: {
@@ -45,4 +47,4 @@ var PodcastSchema = new Schema ({
 })
 
 // exports.Podcast = Podcast;
-module.exports = mongoose.model('Podcast', PodcastSchema);
+module.exports = mongoose.model('Podcast', PodcastSchema, 'Podcast');

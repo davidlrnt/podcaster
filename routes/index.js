@@ -3,13 +3,15 @@ var router = express.Router();
 var user = require('../models/user.js');
 var podcast = require('../models/podcast.js');
 
-var dbUrl = process.env.MONGOHQ_URL || 'mongodb://@127.0.0.1:27017/podcaster';
-var mongoose = require('mongoose');
-var connection = mongoose.createConnection(dbUrl);
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.once('open', function () {
-  console.info('Connected to database')
-});
+// var dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/podcaster';
+// var mongoose = require('mongoose');
+// var connection = mongoose.createConnection(dbUrl);
+// connection.on('error', console.error.bind(console, 'connection error:'));
+// connection.once('open', function () {
+//   console.info('Connected to database')
+// });
+// mongoose.set('debug', true);
+
 
 function db (req, res, next) {
   req.db = {
