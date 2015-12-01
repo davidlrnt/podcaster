@@ -9,7 +9,6 @@ var helmet = require('helmet');
 var passport = require('passport')
 var facebook = require('passport-facebook');
 var mongoose = require('mongoose')
-// var models = require('./models/podcast');
 var db = require('./conf/db')
 
 // mongoose.connection.on('error',function (err) {
