@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var request = require('request');
+var xml2js = require('xml2js');
 
 var podcastSchema = new Schema ({
 	name: {
@@ -43,6 +45,18 @@ var podcastSchema = new Schema ({
 	    }
 	}],
 })
+
+podcastSchema.methods.parseUrl = function() {
+	request(this.rssUrl, function (error, response, body) {
+	  	if (!error && response.statusCode == 200) {
+	  		xml2js.parseString(body, function (err, result) {
+	  			console.log(result.rss.channel[0].title[0]);
+	  			console.log(result.rss.channel[0]['itunes:image'])
+			});
+	  	}
+	})
+
+};
 
 // exports.Podcast = Podcast;
 module.exports = mongoose.model('Podcast', podcastSchema);
