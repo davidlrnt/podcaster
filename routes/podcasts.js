@@ -27,4 +27,17 @@ router.get('/', function(req, res, next) {
 	});
 });
 
+router.get('/new', function(req, res, next) {
+	res.render('podcast_new')
+});
+router.post('/new', function(req, res, next) {
+	console.log(req.body)
+});
+
+router.get('/:id', function(req, res, next) {
+	var id = req.params.id
+	console.log(id)
+	res.render('podcast_show', { podcast_id: id})
+});
+
 module.exports = router;

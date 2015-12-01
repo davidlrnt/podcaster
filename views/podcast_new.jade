@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Add Podcast
+  form(name="add-podcast", method="post")
+      div.input
+          span.label Name
+          input(type="text", name="name")
+      div.input
+          span.label RSS Url
+          input(type="text", name="rssUrl")
+      div.actions
+          input(type="submit", value="add")
