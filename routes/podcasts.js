@@ -30,13 +30,18 @@ router.get('/', function(req, res, next) {
 router.get('/new', function(req, res, next) {
 	res.render('podcast_new')
 });
-// router.post('/new', function(req, res, next) {
-// 	console.log(req.body)
-// });
+
 router.post('/new', function(req, res, next) {
-	var rssUrl = req.body.rssUrl;
-  	var pod = new Podcast({rssUrl: rssUrl});
-  	pod.parseUrl();
+  var rssUrl = req.body.rssUrl;
+	var pod = new Podcast({rssUrl: rssUrl});
+	pod.parseUrl(function(obj){
+  	obj.save( function( err, podcast ){
+			if(!err){
+				console.log('_id of saved podcast: ' + podcast._id);
+				res.render('podcast_show', {podcast: obj})
+			} 
+		});
+	});
 });
 
 router.get('/:id', function(req, res, next) {
