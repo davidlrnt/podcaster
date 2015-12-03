@@ -28,12 +28,10 @@ var episodeSchema = new Schema({
 	date: {
 		type: Date,
 	},
-	author: {
-    id: {
-	  	type: Schema.Types.ObjectId,
-	  	ref: 'Podcast'
-			}
-    }
+	author_id: {
+  	type: Schema.Types.ObjectId,
+  	ref: 'Podcast'
+   }
 })
 
 var podcastSchema = new Schema ({
@@ -82,7 +80,8 @@ podcastSchema.methods.parseUrl = function(callback) {
 						title: episodes[i].title[0],
 						description: episodes[i]['itunes:summary'][0],
 						audioUrl: episodes[i]['feedburner:origEnclosureLink'][0],
-						date: episodes[i].pubDate[0]
+						date: episodes[i].pubDate[0],
+						author_id: pod._id
 					})
 				};
 			});

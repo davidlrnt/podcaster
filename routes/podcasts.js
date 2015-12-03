@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 
 	var query  = Podcast.where({ color: 'white' });
 	query.findOne(function (err, data) {
-		console.log("yeah")
 	  if (err) {
 	  	console.log(err)
 	  	return handleError(err);
@@ -46,7 +45,6 @@ router.post('/new', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
 	var id = req.params.id
-	console.log(id)
 	res.render('podcast_show', { podcast_id: id})
 });
 
