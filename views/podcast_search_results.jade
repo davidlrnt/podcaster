@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Results: #{podcasts.length}
+  h1= podcasts.length
+  ul
+  for podcast in podcasts
+    li #{podcast.collectionName}
+    img(src=podcast.artworkUrl100)

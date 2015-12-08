@@ -2,28 +2,27 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Podcast = mongoose.model('Podcast');
+var request = require('request');
+var xml2js = require('xml2js');
 
 router.get('/', function(req, res, next) {
  	// res.send('respond with a resource');
-  	console.log(req.query.name)
-   	// res.render('podcasts', { title: 'Podcasts' });
+  var query = req.query.name;
+  var itunesUrl = 'https://itunes.apple.com/search'
+  // res.render('podcasts', { title: 'Podcasts' });
 	// Podcast.findByName(req.query.name, function (err, docs) {
 	// 	console.log(err)
 	// 	console.log(docs)
 	//     res.json(docs);
 	//     res.render('podcasts', { title: 'Podcasts' });
 	// });
-
-	var query  = Podcast.where({ color: 'white' });
-	query.findOne(function (err, data) {
-	  if (err) {
-	  	console.log(err)
-	  	return handleError(err);
-	  }
-	  if (data) {
-	    // doc may be null if no document matched
-	  }
-	});
+	request({url:itunesUrl, qs:{term:query, entity:'podcast'}}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+		  var results = JSON.parse(body).results
+		  console.log(results)
+		  res.render('podcast_search_results', { podcasts: results });
+		}
+	})
 });
 
 router.get('/new', function(req, res, next) {
