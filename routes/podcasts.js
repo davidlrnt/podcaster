@@ -25,6 +25,14 @@ router.get('/', function(req, res, next) {
 	})
 });
 
+router.post('/', function(req, res, next){
+	console.log(req.body.rssUrl)
+	var rssUrl = req.body.rssUrl;
+	Podcast.findOrCreate({rssUrl: rssUrl}, function (err, podcast){
+		// pass podcast list to jade
+	})
+});
+
 router.get('/new', function(req, res, next) {
 	res.render('podcast_new')
 });

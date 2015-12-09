@@ -5,5 +5,9 @@ block content
   h1= podcasts.length
   ul
   for podcast in podcasts
-    li #{podcast.collectionName}
-    img(src=podcast.artworkUrl100)
+    form(name="get-podcasts", action="podcasts", method="post")
+      div
+        h2 #{podcast.collectionName}
+        img(src=podcast.artworkUrl100)
+        input(type="hidden" name="rssUrl" value="#{podcast.feedUrl}")
+        input(type="submit" value="listen")

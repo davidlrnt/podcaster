@@ -60,6 +60,11 @@ var podcastSchema = new Schema ({
 	imageUrl: String,
 	episodes: [episodeSchema]
 })
+podcastSchema.statics.findOrCreate = function(url, callback){
+	this.find(url, function(err, pod){
+		console.log("")
+	})
+}
 
 podcastSchema.methods.parseUrl = function(callback) {
 	var pod = this;
